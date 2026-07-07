@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#efe6d4">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#efe6d4">
 <title>SipSpell Coffee Co. — Muthithi Rd, Nairobi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Caveat:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
+    color-scheme: light only;
     --cream: #efe6d4;
     --cream-2: #e6dac3;
     --ink: #241d17;
@@ -20,6 +23,8 @@
     --sage: #838d68;
     --paper-line: rgba(36,29,23,0.12);
   }
+  html{ background:var(--cream); color-scheme: light only; }
+  body{ background:var(--cream) !important; }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -161,7 +166,19 @@
     position:absolute; bottom:14px; left:0; right:0; text-align:center;
     font-family:'Caveat',cursive; font-size:19px; color:var(--roast); font-weight:600;
   }
-  @media (max-width:1050px){ .hero-photo{display:none;} }
+  @media (max-width:1050px){
+    .hero-photo{
+      right:50%; top:auto; bottom:36px; left:auto;
+      transform:translateX(50%) rotate(-3deg);
+      width:170px;
+    }
+    .hero-photo:hover{transform:translateX(50%) rotate(-3deg);}
+    .hero-photo img{height:190px;}
+    .hero-photo .cap{font-size:16px; bottom:10px;}
+  }
+  @media (max-width:1050px) and (max-height:680px){
+    .hero-photo{display:none;}
+  }
 
   /* ===== section base ===== */
   section{position:relative;padding:110px 5vw;}
@@ -228,7 +245,7 @@
   }
   .panel.active{display:grid;}
   @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
-  @media (max-width:700px){ .panel{grid-template-columns:1fr;} }
+  @media (max-width:520px){ .panel{grid-template-columns:1fr;} }
   .item{
     background:var(--cream); padding:28px 30px; position:relative; overflow:hidden;
     transition:background .3s ease;
@@ -239,6 +256,16 @@
   .item-price{font-family:'Fraunces',serif; font-weight:600; font-size:17px; color:var(--rust); white-space:nowrap;}
   .item-price::before{content:"KES ";font-size:11px;font-family:'Work Sans',sans-serif;font-weight:500;color:var(--rust-dim);}
   .item-desc{font-size:13.5px; color:var(--roast); margin-top:8px; line-height:1.55; max-width:38ch;}
+
+  @media (max-width:700px){
+    .item{ padding:18px 16px 46px; }
+    .item-name{ font-size:19px; }
+    .item-price{ font-size:13.5px; }
+    .item-price::before{ font-size:9px; }
+    .item-desc{ font-size:11.5px; line-height:1.4; max-width:100%; }
+    .item-add{ width:28px; height:28px; right:12px; bottom:12px; }
+    .item-add .icon{ width:13px; height:13px; }
+  }
 
   /* extras strip */
   .extras{
